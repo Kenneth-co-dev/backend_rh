@@ -17,6 +17,13 @@ public interface AnswerEvidenceRepository extends JpaRepository<AnswerEvidence, 
 			+ "WHERE eva.id_evidence = :idEvidence", nativeQuery = true)
 	List<IEvidenceDetailsDTO> findByIdEvidences( Long idEvidence );
 	
+	@Query( value = "SELECT q.question_description, a.answer_description, a.correct_answer "
+			+ "FROM evidence_answer eva "
+			+ "INNER JOIN answer a ON eva.id_answer = a.id "
+			+ "INNER JOIN question q ON eva.id_question = q.id "
+			+ "WHERE eva.id_evidence = :idEvidence", nativeQuery = true)
+	List<IEvidenceDetailsDTO> findByAutoevaluation( Long idEvidence );
+	
 	@SuppressWarnings("unchecked")
 	AnswerEvidence save(AnswerEvidence answer);
 }

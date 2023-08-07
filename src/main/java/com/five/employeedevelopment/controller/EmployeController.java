@@ -53,7 +53,6 @@ public class EmployeController {
 		}
 	}
 	
-	//LEFT JOIN evidence_answer eva ON ev.evidence_id = eva.id_evidence 
 	@GetMapping("evaluator/{evaluatorId}/evidence")
     public List<IEvidenceDTO> getEvidencesByEvaluator(@PathVariable("evaluatorId") Long evaluatorId) {
         Employe employee = employeeService.findById(evaluatorId);

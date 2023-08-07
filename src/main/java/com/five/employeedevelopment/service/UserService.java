@@ -24,5 +24,16 @@ public class UserService {
 			return false;
 		}
 	}
+	
+	public boolean findUserLogin( User tempUser ) {
+		Long idEmployee = tempUser.getIdEmploye();
+		String password = tempUser.getPassword();
+		Optional<User> userTemp = userRepository.findUserByPassword( idEmployee, password );
+		if( !userTemp.isEmpty() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }
