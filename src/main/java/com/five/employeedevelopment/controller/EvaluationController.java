@@ -17,6 +17,7 @@ import com.five.employeedevelopment.service.EvaluationService;
 
 @RestController
 @RequestMapping("evaluations")
+@CrossOrigin("*")
 public class EvaluationController {
 	
 	private final EvaluationService evaluationService;

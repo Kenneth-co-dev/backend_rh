@@ -17,6 +17,7 @@ import com.five.employeedevelopment.service.AnswerEvidenceService;
 
 @RestController
 @RequestMapping("evidence-details")
+@CrossOrigin("*")
 public class AnswerEvidenceController {
 	
 	private final AnswerEvidenceService answerEvidenceService;

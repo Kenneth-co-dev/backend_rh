@@ -19,6 +19,7 @@ import com.five.employeedevelopment.service.AnswerService;
 
 @RestController
 @RequestMapping("answers")
+@CrossOrigin("*")
 public class AnswerController {
 	
 	private final AnswerService answerService;

@@ -21,6 +21,7 @@ import com.five.employeedevelopment.service.QuestionService;
 
 @RestController
 @RequestMapping("questions")
+@CrossOrigin("*")
 public class QuestionController {
 	
 	QuestionService questionService;

@@ -17,6 +17,7 @@ import com.five.employeedevelopment.service.EmployeeService;
 
 @RestController
 @RequestMapping("employees")
+@CrossOrigin("*")
 public class EmployeController {
 	
 	private final EmployeeService employeeService;

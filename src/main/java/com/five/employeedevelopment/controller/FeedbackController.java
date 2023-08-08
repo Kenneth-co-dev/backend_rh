@@ -15,6 +15,7 @@ import com.five.employeedevelopment.service.FeedbackService;
 
 @RestController
 @RequestMapping("feedbacks")
+@CrossOrigin("*")
 public class FeedbackController {
 	
 	private final FeedbackService feedbackService;

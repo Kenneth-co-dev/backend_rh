@@ -16,6 +16,7 @@ import com.five.employeedevelopment.repository.EvidenceRepository;
 
 @RestController
 @RequestMapping("evidences")
+@CrossOrigin("*")
 public class EvidenceController {
 	
 	private EvidenceRepository evidenceRepository;

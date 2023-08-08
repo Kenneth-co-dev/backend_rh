@@ -13,6 +13,7 @@ public class EmployeeDevelopmentApplication {
 		SpringApplication.run(EmployeeDevelopmentApplication.class, args);
 	}
 	
+	/*
 	@Bean
 	public WebMvcConfigurer corsConfigure() {
 		return new WebMvcConfigurer() {
@@ -22,5 +23,5 @@ public class EmployeeDevelopmentApplication {
 			}
 		};
 	}
-
+*/
 }

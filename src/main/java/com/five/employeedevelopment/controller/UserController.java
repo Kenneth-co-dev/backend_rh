@@ -13,6 +13,7 @@ import com.five.employeedevelopment.service.UserService;
 
 @RestController
 @RequestMapping("users")
+@CrossOrigin("*")
 public class UserController {
 	
 	private final UserService userService;
