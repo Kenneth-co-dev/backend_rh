@@ -21,7 +21,6 @@ import com.five.employeedevelopment.service.QuestionService;
 
 @RestController
 @RequestMapping("questions")
-@CrossOrigin("http://localhost:4200")
 public class QuestionController {
 	
 	QuestionService questionService;
@@ -41,9 +40,17 @@ public class QuestionController {
 		int response = questionService.modifyQuestion(question);
 		return new ResponseEntity<Integer>(response, HttpStatus.OK);
 	}
+
+	@GetMapping("new/{question_description}/{competence}")
+	public int newQuestion(
+			@PathVariable("question_description") String question_description,
+			@PathVariable("competence") String competence ) {
+		Long idEvaluation = (long) 1;
+		return questionService.newQuestion( question_description, idEvaluation, competence);
+	}
 	
-	@PostMapping("new")
-	public Question newQuestion(@RequestBody Question question) {
-		return questionService.newQuestion(question);
+	@GetMapping("delete/{idQuestion}")
+	public int deleteQuestion( @PathVariable("idQuestion") Long idQuestion ) {
+		return questionService.deleteQuestion( idQuestion );
 	}
 }

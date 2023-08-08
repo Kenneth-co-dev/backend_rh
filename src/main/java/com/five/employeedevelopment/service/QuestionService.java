@@ -22,30 +22,19 @@ public class QuestionService {
 		return questionRepository.findByEvaluationId(id);
 	}
 	
-	public Question saveQuestion( Question question ){
-		return questionRepository.save( question );
+	public int newQuestion( String question_description, Long idEvaluation, String competence ){
+		return questionRepository.addQuestion( question_description, idEvaluation, competence );
 	}
 	
 	public int modifyQuestion( Question question ){
 		return questionRepository.modifyQuestion( question.getIdQuestion(), question.getQuestionDescription(), question.getCompetencia() );
 	}
 	
-	//Nuevo
 	public Optional<Question> findByQuestionId( Long id ){
 		return questionRepository.findById(id);
 	}
 	
-	/*public Optional<IQuestionDTO> modifyQuestion( Long id, String question_Description, Long id_evaluation, int status, String competencia ){
-		return questionRepository.modifyById(
-				id,
-				question_Description,
-				id_evaluation,
-				status,
-				competencia
-			);
-	}*/
-	
-	public Question newQuestion( Question question ){
-		return questionRepository.save(question);
+	public int deleteQuestion( Long idQuestion ) {
+		return questionRepository.deleteQuestion( idQuestion );
 	}
 }

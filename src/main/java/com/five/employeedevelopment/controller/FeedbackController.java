@@ -15,7 +15,6 @@ import com.five.employeedevelopment.service.FeedbackService;
 
 @RestController
 @RequestMapping("feedbacks")
-@CrossOrigin("http://localhost:4200")
 public class FeedbackController {
 	
 	private final FeedbackService feedbackService;
@@ -25,9 +24,9 @@ public class FeedbackController {
 	}
 	
 	//GET
-	@GetMapping("{id}")
-	public ResponseEntity<Feedback> getFeedbackById(@PathVariable("id") Long id) {
-		return ResponseEntity.ok(feedbackService.findFeedbackByIdEvidence(id));
+	@GetMapping("{id_evidence}")
+	public ResponseEntity<Feedback> getFeedbackByEvidenceId(@PathVariable("id_evidence") Long id_evidence) {
+		return ResponseEntity.ok(feedbackService.findFeedbackByIdEvidence(id_evidence));
 	}
 	
 	//POST

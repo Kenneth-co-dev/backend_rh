@@ -13,7 +13,6 @@ import com.five.employeedevelopment.service.UserService;
 
 @RestController
 @RequestMapping("users")
-@CrossOrigin("http://localhost:4200")
 public class UserController {
 	
 	private final UserService userService;

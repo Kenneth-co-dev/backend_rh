@@ -17,7 +17,6 @@ import com.five.employeedevelopment.service.EvaluationService;
 
 @RestController
 @RequestMapping("evaluations")
-@CrossOrigin("http://localhost:4200")
 public class EvaluationController {
 	
 	private final EvaluationService evaluationService;

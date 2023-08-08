@@ -19,7 +19,6 @@ import com.five.employeedevelopment.service.AnswerService;
 
 @RestController
 @RequestMapping("answers")
-@CrossOrigin("http://localhost:4200")
 public class AnswerController {
 	
 	private final AnswerService answerService;
@@ -39,9 +38,12 @@ public class AnswerController {
 		return new ResponseEntity<Integer>(response, HttpStatus.OK);
 	}
 	
-	@PostMapping("new")
-	public Answer newAnswer( @RequestBody Answer answer ) {
-		return answerService.newAnswer(answer);
+	@GetMapping("new/{answer_description}/{id_question}/{correct_answer}")
+	public int newQuestion(
+			@PathVariable("answer_description") String answer_description,
+			@PathVariable("id_question") Long id_question,
+			@PathVariable("correct_answer") String correct_answer ) {
+		return answerService.addAnswer( answer_description, id_question, correct_answer );
 	}
 
 }

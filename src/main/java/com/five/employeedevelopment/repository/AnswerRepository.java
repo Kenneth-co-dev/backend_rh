@@ -23,5 +23,15 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
 	@Modifying
 	@Query( value="UPDATE answer SET answer_description = :answer_description WHERE id = :id", nativeQuery = true )
 	int modifyAnswerDescription(String answer_description, Long id);
+	
+	@Transactional
+	@Modifying
+	@Query( value = "INSERT INTO answer ("
+			+ "answer_description, "
+			+ "id_question, "
+			+ "correct_answer) "
+			+ "VALUE ( :answer_description, :id_question, :correct_answer)",
+			nativeQuery = true )
+	int addAnswer( String answer_description, Long id_question, String correct_answer );
 
 }

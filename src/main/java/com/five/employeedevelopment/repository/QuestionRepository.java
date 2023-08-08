@@ -15,9 +15,6 @@ import com.five.employeedevelopment.model.IQuestionDTO;
 
 import jakarta.transaction.Transactional;
 
-
-@CrossOrigin("http://localhost:4200")
-//@RepositoryRestResource( collectionResourceRel = "questions", path = "questions" )
 public interface QuestionRepository extends JpaRepository<Question, Long>{
 	
 	@Query(value = "SELECT id, question_Description, id_evaluation, status, competencia FROM question WHERE id_evaluation = :id", nativeQuery = true)
@@ -33,5 +30,20 @@ public interface QuestionRepository extends JpaRepository<Question, Long>{
 	
 	@SuppressWarnings("unchecked")
 	Question save(Question question);
+	
+	@Transactional
+	@Modifying
+	@Query( value = "DELETE FROM question WHERE id = :idQuestion", nativeQuery = true )
+	int deleteQuestion( Long idQuestion );
+	
+	@Transactional
+	@Modifying
+	@Query( value = "INSERT INTO question ("
+			+ "question_description, "
+			+ "id_evaluation, "
+			+ "competencia) "
+			+ "VALUE ( :question_description, :id_evaluation, :competencia)",
+			nativeQuery = true )
+	int addQuestion( String question_description, Long id_evaluation, String competencia );
 
 }

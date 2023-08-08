@@ -21,8 +21,8 @@ public class AnswerService {
 		return answerRepository.findByQuestion( question );
 	}
 	
-	public Answer newAnswer( Answer answer ) {
-		return answerRepository.save(answer);
+	public int addAnswer( String answer_description, Long id_question, String correct_answer ){
+		return answerRepository.addAnswer( answer_description, id_question, correct_answer );
 	}
 	
 	public int modifyAnswerDescription( Answer answer ) {

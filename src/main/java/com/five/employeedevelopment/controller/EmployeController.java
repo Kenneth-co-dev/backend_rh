@@ -17,7 +17,6 @@ import com.five.employeedevelopment.service.EmployeeService;
 
 @RestController
 @RequestMapping("employees")
-@CrossOrigin("http://localhost:4200")
 public class EmployeController {
 	
 	private final EmployeeService employeeService;
